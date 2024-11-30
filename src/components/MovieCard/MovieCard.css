@@ -1,13 +1,18 @@
-.movie-link:hover {
-    transform: scale(1.08);
-}
-
 .movie-card {
     width: 100%;
     height: 100%;
 }
 
-.movie-poster img{
+.movie-poster {
+    transition: .5s;
+}
+
+.movie-poster:hover {
+    transform: scale(1.08);
+    padding-bottom: 0.7rem;
+}
+
+.poster-img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -15,9 +20,30 @@
     border-radius: 15px;
 }
 
+.poster-no-img {
+    border: 3px solid black;
+    border-radius: 15px;
+    width: 100%;
+    height: 87%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.no-img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
 .movie-title {
     color: black;
     font-size: 16px;
+    text-align: center;
 }
 
 .movie-date {
