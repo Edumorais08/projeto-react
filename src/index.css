@@ -15,3 +15,14 @@ a {
   text-decoration: none;
   transition: .5s;
 }
+
+body {
+  background-color: #F4F4F9;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  scroll-padding-top: 4rem; 
+}
