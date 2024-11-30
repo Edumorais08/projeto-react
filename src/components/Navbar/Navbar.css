@@ -1,0 +1,30 @@
+.header {
+    background-color: black;
+    width: 100%;
+    padding: 0.7rem 3rem;;
+    display: flex;
+    gap: 5rem;
+    text-align: center;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+}
+
+body {
+    padding-top: 4rem; 
+}
+
+.page-title {
+    color:  #586F7C;
+    font-size: 40px;
+}
+
+.header-link {
+    color:  #586F7C;
+    font-size: 25px;
+}
+
+.header-link:hover {
+    color: #B8DBD9;
+}
