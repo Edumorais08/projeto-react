@@ -16,15 +16,16 @@ body {
 }
 
 .page-title {
-    color:  #586F7C;
+    color:  #B8DBD9;
     font-size: 40px;
 }
 
 .header-link {
-    color:  #586F7C;
+    color:  #B8DBD9;
     font-size: 25px;
 }
 
-.header-link:hover {
-    color: #B8DBD9;
+.header-link:hover,
+.page-title:hover {
+    color: #F0F7F7;
 }

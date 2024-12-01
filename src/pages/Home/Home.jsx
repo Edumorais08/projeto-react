@@ -24,7 +24,6 @@ const Home = () => {
       }
     }).then(response => {
       setNowPlayingMovies(response.data.results);
-      console.log(response.data.results)
     })
   }
 
@@ -44,7 +43,6 @@ const Home = () => {
       }
     }).then(response => {
       setUpcomingMovies(response.data.results);
-      console.log(response.data.results)
     })
   }
 
@@ -53,11 +51,13 @@ const Home = () => {
       <h2 className="category-title" id="nos-cinemas">Nos Cinemas</h2>
       <ul className="movie-list">
         {nowPlayingMovies.map((nowPlayingMovie) =>
-          <MovieCard 
+          <MovieCard
+            id={nowPlayingMovie.id} 
             key={nowPlayingMovie.id}
             title={nowPlayingMovie.title}
             poster_path={nowPlayingMovie.poster_path}
             release_date={nowPlayingMovie.release_date}
+            movie = {nowPlayingMovie}
           />
         )}
       </ul>
@@ -66,10 +66,12 @@ const Home = () => {
       <ul className="movie-list">
         {upcomingMovies.map((upcomingMovie) =>
           <MovieCard 
+            id={upcomingMovie.id}
             key={upcomingMovie.id}
             title={upcomingMovie.title}
             poster_path={upcomingMovie.poster_path}
             release_date={upcomingMovie.release_date}
+            movie = {upcomingMovie}
           />
         )}
       </ul>
