@@ -121,9 +121,9 @@ const Home = () => {
 
       {/* Seção de Favoritos */}
       <section id="favoritos" className="favorites-container">
-        <h1 className="favorites-title">Filmes Favoritos</h1>
+        <h1 className="category-title">Filmes Favoritos</h1>
         {favorites.length > 0 ? (
-          <ul className="favorites-grid">
+          <ul className="movie-list">
             {favorites.map((movie) => (
               <MovieCard
                 key={movie.id}

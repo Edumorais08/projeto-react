@@ -50,10 +50,14 @@
 
 .actor-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 25px;
     list-style-type: none;
     width: 100%;
     padding-left: 10px;
     padding-bottom: 1rem;
+}
+
+.actor-list:only-child {
+    grid-template-columns: 1fr; 
 }
