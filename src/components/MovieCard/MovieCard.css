@@ -50,3 +50,20 @@
     color: black;
     font-size: 14px;
 }
+
+.favorite-btn {
+    background-color: #ffcc00;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .favorite-btn.is-favorite {
+    background-color: #ff6666;
+    color: white;
+  }
+  
