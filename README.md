@@ -1,8 +1,29 @@
-# React + Vite
+# TMDB React
+Esse projeto se trata de um site feito com React JS que utiliza a API "TMDB" para fazer a listagem de filmes que estão nos cinemas ou vão entrar em breve, tendo a possibilidade de escolher os filmes favoritos e fazer login na página:
+- Eduardo de Almeida Morais
+- Lucas Alves Oliveira Dos Santos
+- Pedro Lopes da Cunha
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+É possível acessar o projeto com o link "" , ou acessar localmente com as instruções abaixo:
 
-Currently, two official plugins are available:
+## Como rodar o projeto?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Clone o repositório:**
+```
+git clone https://github.com/Edumorais08/projeto-react.git
+```
+
+**Vá para a pasta "projeto-react" :**
+```
+cd projeto-react
+```
+
+**Instale as dependências e rode o projeto:  =)**
+```
+npm install
+```
+
+```
+npm run dev
+```
+
