@@ -12,7 +12,8 @@ const Home = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [sortedNowPlayingMovies, setSortedNowPlayingMovies] = useState([]);
   const [sortedUpcomingMovies, setSortedUpcomingMovies] = useState([]);
-  const [filter, setFilter] = useState("none"); // Estado para o filtro
+  const [filter, setFilter] = useState("none");
+  const [searchQuery, setSearchQuery] = useState("");
   const { favorites } = useFavorites();
 
   useEffect(() => {
@@ -21,8 +22,12 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    applyFilter(); // Reaplica o filtro sempre que ele muda
+    applyFilter();
   }, [filter, nowPlayingMovies, upcomingMovies]);
+
+  useEffect(() => {
+    applySearchFilter();
+  }, [searchQuery, nowPlayingMovies, upcomingMovies]);
 
   const getNowPlayingMovies = () => {
     axios({
@@ -34,7 +39,7 @@ const Home = () => {
       },
     }).then((response) => {
       setNowPlayingMovies(response.data.results);
-      setSortedNowPlayingMovies(response.data.results); // Inicializa com a lista original
+      setSortedNowPlayingMovies(response.data.results);
     });
   };
 
@@ -48,11 +53,11 @@ const Home = () => {
       },
     }).then((response) => {
       setUpcomingMovies(response.data.results);
-      setSortedUpcomingMovies(response.data.results); // Inicializa com a lista original
+      setSortedUpcomingMovies(response.data.results);
     });
   };
 
-  // Função para aplicar o filtro
+
   const applyFilter = () => {
     const sortMovies = (movies) => {
       if (filter === "alphabetical") {
@@ -62,18 +67,37 @@ const Home = () => {
           (a, b) => new Date(a.release_date) - new Date(b.release_date)
         );
       }
-      return movies; // Nenhum filtro
+      return movies;
     };
 
     setSortedNowPlayingMovies(sortMovies(nowPlayingMovies));
     setSortedUpcomingMovies(sortMovies(upcomingMovies));
   };
 
+
+  const applySearchFilter = () => {
+    const filterMoviesBySearch = (movies) =>
+      movies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+    setSortedNowPlayingMovies(filterMoviesBySearch(nowPlayingMovies));
+    setSortedUpcomingMovies(filterMoviesBySearch(upcomingMovies));
+  };
+
   return (
-    <div>
-      {/* Seletor de Filtros */}
-      <div className="filter-container">
-        <label htmlFor="filter">Ordenar por: </label>
+    <div className="control-panel">
+      {/* Campo de Busca */}
+      <div>
+        <label htmlFor="search">Buscar Filme:</label>
+        <input
+          id="search"
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Digite o nome do filme..."
+        />
+        <label htmlFor="filter">Ordenar por:</label>
         <select
           id="filter"
           value={filter}
@@ -85,62 +109,64 @@ const Home = () => {
         </select>
       </div>
 
-      {/* Seção "Nos Cinemas" */}
-      <section id="nos-cinemas">
-        <h2 className="category-title">Nos Cinemas</h2>
-        <ul className="movie-list">
-          {sortedNowPlayingMovies.map((nowPlayingMovie) => (
-            <MovieCard
-              id={nowPlayingMovie.id}
-              key={nowPlayingMovie.id}
-              title={nowPlayingMovie.title}
-              poster_path={nowPlayingMovie.poster_path}
-              release_date={nowPlayingMovie.release_date}
-              movie={nowPlayingMovie}
-            />
-          ))}
-        </ul>
-      </section>
+     
+    
+  {/* Seção "Nos Cinemas" */}
+  <section id="nos-cinemas">
+    <h2 className="category-title">Nos Cinemas</h2>
+    <ul className="movie-list">
+      {sortedNowPlayingMovies.map((nowPlayingMovie) => (
+        <MovieCard
+          id={nowPlayingMovie.id}
+          key={nowPlayingMovie.id}
+          title={nowPlayingMovie.title}
+          poster_path={nowPlayingMovie.poster_path}
+          release_date={nowPlayingMovie.release_date}
+          movie={nowPlayingMovie}
+        />
+      ))}
+    </ul>
+  </section>
 
-      {/* Seção "Em Breve" */}
-      <section id="em-breve">
-        <h2 className="category-title">Em Breve</h2>
-        <ul className="movie-list">
-          {sortedUpcomingMovies.map((upcomingMovie) => (
-            <MovieCard
-              id={upcomingMovie.id}
-              key={upcomingMovie.id}
-              title={upcomingMovie.title}
-              poster_path={upcomingMovie.poster_path}
-              release_date={upcomingMovie.release_date}
-              movie={upcomingMovie}
-            />
-          ))}
-        </ul>
-      </section>
+  {/* Seção "Em Breve" */ }
+  <section id="em-breve">
+    <h2 className="category-title">Em Breve</h2>
+    <ul className="movie-list">
+      {sortedUpcomingMovies.map((upcomingMovie) => (
+        <MovieCard
+          id={upcomingMovie.id}
+          key={upcomingMovie.id}
+          title={upcomingMovie.title}
+          poster_path={upcomingMovie.poster_path}
+          release_date={upcomingMovie.release_date}
+          movie={upcomingMovie}
+        />
+      ))}
+    </ul>
+  </section>
 
-      {/* Seção de Favoritos */}
-      <section id="favoritos" className="favorites-container">
-        <h1 className="category-title">Filmes Favoritos</h1>
-        {favorites.length > 0 ? (
-          <ul className="movie-list">
-            {favorites.map((movie) => (
-              <MovieCard
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                poster_path={movie.poster_path}
-                release_date={movie.release_date}
-              />
-            ))}
-          </ul>
-        ) : (
-          <p className="favorites-empty">
-            Você ainda não adicionou nenhum filme aos favoritos.
-          </p>
-        )}
-      </section>
-    </div>
+  {/* Seção de Favoritos */ }
+  <section id="favoritos" className="favorites-container">
+    <h1 className="category-title">Filmes Favoritos</h1>
+    {favorites.length > 0 ? (
+      <ul className="movie-list">
+        {favorites.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+            release_date={movie.release_date}
+          />
+        ))}
+      </ul>
+    ) : (
+      <p className="favorites-empty">
+        Você ainda não adicionou nenhum filme aos favoritos.
+      </p>
+    )}
+  </section>
+    </div >
   );
 };
 
