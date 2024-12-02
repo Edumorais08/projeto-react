@@ -1,5 +1,5 @@
 # TMDB React
-Esse projeto se trata de um site feito com React JS que utiliza a API "TMDB" para fazer a listagem de filmes que estão nos cinemas ou vão entrar em breve, tendo a possibilidade de escolher os filmes favoritos e fazer login na página:
+Esse projeto se trata de um site feito com React JS que utiliza a API "TMDB" para fazer a listagem de filmes que estão nos cinemas ou vão entrar em breve, tendo a possibilidade de escolher os filmes favoritos e fazer login na página e foi realizado em um grupo de 3 pessoas:
 - Eduardo de Almeida Morais
 - Lucas Alves Oliveira Dos Santos
 - Pedro Lopes da Cunha
