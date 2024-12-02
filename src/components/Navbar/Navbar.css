@@ -3,7 +3,7 @@
     width: 100%;
     padding: 0.7rem 3rem;
     display: flex;
-    justify-content: space-between; /* Distribui título e links */
+    justify-content: space-between; 
     align-items: center;
     z-index: 1000;
     position: fixed;
@@ -12,7 +12,7 @@
 
 .header-links {
     display: flex;
-    gap: 2rem; /* Espaçamento uniforme entre os links */
+    gap: 2rem; 
 }
 
 body {
@@ -34,3 +34,56 @@ body {
 .page-title:hover {
     color: #F0F7F7;
 }
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-button {
+    background-color: #202020;
+    color: #b3b3b3;
+    border: 1px solid #b3b3b3;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-button:hover {
+    background-color: #b3b3b3;
+    color: #202020;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #202020;
+    border: 1px solid #b3b3b3;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .dropdown-content .dropdown-link {
+    color: #b3b3b3;
+    padding: 8px 16px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content .dropdown-link:hover {
+    background-color: #b3b3b3;
+    color: #202020;
+  }
+  
+ 
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
