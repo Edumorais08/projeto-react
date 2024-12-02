@@ -6,7 +6,7 @@ const Navbar = () => {
   const location = useLocation(); 
 
   const isHomePage = location.pathname === "/";
-
+  const isFavoritePage = location.pathname === "/favorites";
   return (
     <div>
       <nav className="header">
@@ -15,14 +15,21 @@ const Navbar = () => {
         </h2>
 
         <div className="header-links">
-          {isHomePage && (
+          {isHomePage  && (
             <>
               <a href="#nos-cinemas" className="header-link">Nos Cinemas</a>
               <a href="#em-breve" className="header-link">Em Breve</a>
-              <a href="#favoritos" className="header-link">Favoritos</a>
             </>
           )}
+          {isFavoritePage && (
+            <>
+              <a href="../#nos-cinemas" className="header-link">Nos Cinemas</a>
+              <a href="../#em-breve" className="header-link">Em Breve</a>
+            </>
+          )}
+          <Link to="/favorites" className="header-link">Favoritos</Link>
         </div>
+        
       </nav>
     </div>
   );

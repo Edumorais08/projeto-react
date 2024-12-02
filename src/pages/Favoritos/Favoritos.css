@@ -1,0 +1,19 @@
+.category-title {
+    padding: 20px;
+    font-size: 50px;
+    text-align: left;
+  }
+  
+  .movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    list-style-type: none;
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 1rem;
+  }
+  
+  .movie-list:only-child {
+  grid-template-columns: 1fr; 
+  }

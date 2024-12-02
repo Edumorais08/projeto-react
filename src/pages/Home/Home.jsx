@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useFavorites } from "../../context/FavoriteContext";
+
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 import "./Home.css";
@@ -14,7 +14,7 @@ const Home = () => {
   const [sortedUpcomingMovies, setSortedUpcomingMovies] = useState([]);
   const [filter, setFilter] = useState("none");
   const [searchQuery, setSearchQuery] = useState("");
-  const { favorites } = useFavorites();
+  
 
   useEffect(() => {
     getNowPlayingMovies();
@@ -143,28 +143,6 @@ const Home = () => {
         />
       ))}
     </ul>
-  </section>
-
-  {/* Seção de Favoritos */ }
-  <section id="favoritos" className="favorites-container">
-    <h1 className="category-title">Filmes Favoritos</h1>
-    {favorites.length > 0 ? (
-      <ul className="movie-list">
-        {favorites.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            poster_path={movie.poster_path}
-            release_date={movie.release_date}
-          />
-        ))}
-      </ul>
-    ) : (
-      <p className="favorites-empty">
-        Você ainda não adicionou nenhum filme aos favoritos.
-      </p>
-    )}
   </section>
     </div >
   );
