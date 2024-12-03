@@ -4,7 +4,7 @@ Esse projeto se trata de um site feito com React JS que utiliza a API "TMDB" par
 - Lucas Alves Oliveira Dos Santos
 - Pedro Lopes da Cunha
 
-É possível acessar o projeto com o link "" , ou acessar localmente com as instruções abaixo:
+É possível acessar o projeto com o link https://projeto-react-ten-flax.vercel.app/ , ou acessar localmente com as instruções abaixo:
 
 ## Como rodar o projeto?
 
