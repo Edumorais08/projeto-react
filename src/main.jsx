@@ -11,6 +11,7 @@ import RegisterPage from './pages/RegisterPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import Favorites from "./pages/Favoritos/Favoritos.jsx";
 import { FavoriteProvider } from './context/FavoriteContext'; 
+import EditProfile from './pages/EditProfile.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/favorites' element={<Favorites />} />
+            <Route path='/EditProfile' element={<EditProfile />} />
           </Route>
         </Routes>
       </BrowserRouter>

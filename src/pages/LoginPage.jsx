@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./UserManager.module.css";
+
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [users] = useState(() => {
@@ -57,7 +59,7 @@ const LoginPage = () => {
         {loginError && <p className={styles.error}>{loginError}</p>}
       </form>
       <p>
-        Não possui uma conta? <a href="/register">Cadastre-se aqui</a>.
+        Não possui uma conta? <Link to="/register">Cadastre-se aqui</Link>.
       </p>
     </div>
   );

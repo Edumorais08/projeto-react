@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./UserManager.module.css";
+import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
   const [users, setUsers] = useState(() => {
@@ -59,7 +60,7 @@ const RegisterPage = () => {
         <button type="submit">Cadastrar</button>
       </form>
       <p>
-        Já possui uma conta? <a href="/login">Faça login aqui</a>.
+        Já possui uma conta? <Link to="/login">Faça login aqui</Link>.
       </p>
     </div>
   );
